@@ -1,2 +1,19 @@
-
-[]
+[
+  {
+    "id": "movie-7f82b059c891",
+    "type": "movie",
+    "title": "Untitled",
+    "poster": "assets/posters/movie-7f82b059c891.jpg",
+    "rating": "N/A",
+    "duration": "Not specified",
+    "language": "Not specified",
+    "genres": [],
+    "releaseDate": "Not specified",
+    "description": "Title: Test Movie Rating: 8.0 Duration: 2h 00m Language: Hindi Genre: Action, Drama Release Date: 2026-09-05 Description: This is a test listing for the MoviesHaunt website.",
+    "telegramLink": "https://t.me/Movieshaunt2/118",
+    "watchLink": "https://youtube.com/@punisher_exe?si=sRQR7QMrAn6cjQZz",
+    "posterMessageId": 117,
+    "fileMessageId": 118,
+    "addedAt": "2026-09-05T09:24:10.956155+00:00"
+  }
+]
