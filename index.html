@@ -1,1 +1,150 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MoviesHaunt — discover authorized movies, trailers and entertainment updates.">
+  <title>MoviesHaunt</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="MoviesHaunt home">
+      <span class="brand-mark">M</span>
+      <span>MOVIES<span>HAUNT</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#latest">Latest</a>
+      <a href="#movies">Movies</a>
+      <a href="#series">Web Series</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="telegram-top" href="https://t.me/Movieshaunt2" target="_blank" rel="noopener noreferrer">
+        Join Telegram
+      </a>
+      <button id="menuButton" class="menu-button" type="button" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <aside id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <button id="closeMenuButton" class="close-menu" type="button" aria-label="Close menu">×</button>
+    <a href="https://t.me/Movieshaunt2" target="_blank" rel="noopener noreferrer">Main Telegram Channel</a>
+    <a href="https://t.me/MoviesHaunt3" target="_blank" rel="noopener noreferrer">Emergency Channel</a>
+    <a href="https://t.me/+RiKPOYqdftVlOTY1" target="_blank" rel="noopener noreferrer">Request a Movie</a>
+    <a href="https://t.me/+SUxcnnByfnNiNzY1" target="_blank" rel="noopener noreferrer">Report an Issue</a>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">YOUR ENTERTAINMENT HUB</p>
+      <h1>Find your next <span>watch.</span></h1>
+      <p class="hero-copy">
+        Browse the latest updates, trailers, reviews and authorized entertainment releases.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button button-primary" href="#latest">Explore Latest</a>
+        <a class="button button-secondary" href="https://t.me/Movieshaunt2" target="_blank" rel="noopener noreferrer">
+          Telegram Channel
+        </a>
+      </div>
+    </section>
+
+    <section class="tools-section" aria-label="Browse content">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search movies or web series…" autocomplete="off">
+      </label>
+
+      <div id="filterBar" class="filter-bar" aria-label="Category filters">
+        <button class="filter-chip active" data-filter="all" type="button">All</button>
+        <button class="filter-chip" data-filter="movie" type="button">Movies</button>
+        <button class="filter-chip" data-filter="series" type="button">Web Series</button>
+        <button class="filter-chip" data-filter="hindi" type="button">Hindi</button>
+        <button class="filter-chip" data-filter="english" type="button">English</button>
+        <button class="filter-chip" data-filter="dubbed" type="button">Dubbed</button>
+      </div>
+    </section>
+
+    <section id="promoTop" class="promotion-wrap" aria-label="Featured promotion"></section>
+
+    <section id="latest" class="catalog-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">JUST ADDED</p>
+          <h2>Latest releases</h2>
+        </div>
+        <span id="movieCount" class="movie-count"></span>
+      </div>
+
+      <div id="movieGrid" class="movie-grid" aria-live="polite"></div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <p>No matching titles found.</p>
+        <button id="clearSearchButton" type="button">Clear search</button>
+      </div>
+    </section>
+
+    <section id="promoBottom" class="promotion-wrap" aria-label="Promotion"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> MoviesHaunt. Content listings are for authorized material and official sources.</p>
+    <div class="footer-links">
+      <a href="https://t.me/Movieshaunt2" target="_blank" rel="noopener noreferrer">Main Channel</a>
+      <a href="https://t.me/MoviesHaunt3" target="_blank" rel="noopener noreferrer">Emergency</a>
+      <a href="https://t.me/+RiKPOYqdftVlOTY1" target="_blank" rel="noopener noreferrer">Request</a>
+      <a href="https://t.me/+SUxcnnByfnNiNzY1" target="_blank" rel="noopener noreferrer">Report</a>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <article class="modal-card">
+      <button class="modal-close" type="button" aria-label="Close details" data-close-modal>×</button>
+
+      <div class="modal-poster-wrap">
+        <img id="modalPoster" class="modal-poster" src="" alt="">
+      </div>
+
+      <div class="modal-content">
+        <p id="modalType" class="eyebrow"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription" class="modal-description"></p>
+
+        <div class="meta-grid">
+          <div><span>Rating</span><strong id="modalRating"></strong></div>
+          <div><span>Length</span><strong id="modalDuration"></strong></div>
+          <div><span>Language</span><strong id="modalLanguage"></strong></div>
+          <div><span>Released on</span><strong id="modalDate"></strong></div>
+        </div>
+
+        <p id="modalGenres" class="genre-line"></p>
+
+        <div class="modal-actions">
+          <a id="downloadButton" class="button button-download" href="#" target="_blank" rel="noopener noreferrer">
+            Open on Telegram
+          </a>
+          <a id="watchButton" class="button button-watch" href="#" target="_blank" rel="noopener noreferrer">
+            Watch Online
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
