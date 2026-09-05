@@ -4,7 +4,6 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 
@@ -46,9 +45,6 @@ def write_json(path, value):
 
     with path.open("w", encoding="utf-8") as file:
         json.dump(value, file, ensure_ascii=False, indent=2)
-        file.write("
-")
-
 
 def caption_of(post):
     return (post.get("caption") or post.get("text") or "").strip()
@@ -66,12 +62,9 @@ def is_file_post(post):
     file_name = document.get("file_name", "").lower()
     mime_type = document.get("mime_type", "").lower()
 
-    return (
-        bool(document)
-        and (
-            mime_type.startswith("video/")
-            or Path(file_name).suffix.lower() in VIDEO_EXTENSIONS
-        )
+    return bool(document) and (
+        mime_type.startswith("video/")
+        or Path(file_name).suffix.lower() in VIDEO_EXTENSIONS
     )
 
 
@@ -253,7 +246,7 @@ def main():
         if pending_poster:
             pending_poster = None
             state["pendingPoster"] = None
-            print("Pending poster cleared because the next channel post was not a file.")
+            print("Pending poster cleared because next post was not a file.")
 
     write_json(STATE_FILE, state)
 
